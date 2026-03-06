@@ -1,5 +1,8 @@
 import { useMemo, useState } from "react";
 
+const VALID_USERNAME = "raza";
+const VALID_PASSWORD = "ismail";
+
 const CRITERIA = [
   {
     id: "dvt_signs",
@@ -56,6 +59,10 @@ function getThreeTier(score) {
 }
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
   const [selected, setSelected] = useState({});
 
   const score = useMemo(
@@ -77,6 +84,62 @@ export default function App() {
   };
 
   const reset = () => setSelected({});
+  const logout = () => {
+    setIsAuthenticated(false);
+    setUsername("");
+    setPassword("");
+    setLoginError("");
+    reset();
+  };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+      setIsAuthenticated(true);
+      setLoginError("");
+      return;
+    }
+    setLoginError("Invalid username or password.");
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <main className="page login-page">
+        <section className="panel login-panel">
+          <p className="eyebrow">Secure Access</p>
+          <h1>Wells PE Calculator Login</h1>
+          <p className="subtitle">Sign in to access the pulmonary embolism scoring tool.</p>
+
+          <form className="login-form" onSubmit={handleLogin}>
+            <label htmlFor="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              autoComplete="username"
+              required
+            />
+
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              autoComplete="current-password"
+              required
+            />
+
+            {loginError ? <p className="login-error">{loginError}</p> : null}
+            <button type="submit" className="primary-btn">
+              Login
+            </button>
+          </form>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="page">
@@ -86,6 +149,9 @@ export default function App() {
         <p className="subtitle">
           Select all findings present in your patient. Score updates instantly.
         </p>
+        <button type="button" className="primary-btn logout-btn" onClick={logout}>
+          Logout
+        </button>
       </section>
 
       <section className="layout">

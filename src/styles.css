@@ -48,6 +48,51 @@ body {
   margin-bottom: 1.15rem;
 }
 
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.login-panel {
+  width: min(460px, 96vw);
+  padding: 1.5rem;
+}
+
+.login-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.login-form label {
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.login-form input {
+  width: 100%;
+  border: 1px solid rgba(15, 98, 83, 0.22);
+  border-radius: 10px;
+  padding: 0.7rem 0.75rem;
+  font-size: 1rem;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.login-form input:focus {
+  outline: 2px solid rgba(14, 143, 120, 0.3);
+  border-color: var(--accent);
+}
+
+.login-error {
+  margin: 0.2rem 0 0;
+  color: #b0143c;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
 .eyebrow {
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -94,6 +139,26 @@ h1 {
 .section-head h2,
 .score-panel h2 {
   font-size: 1.45rem;
+}
+
+.primary-btn {
+  border: 1px solid rgba(10, 109, 92, 0.25);
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(10, 109, 92, 0.28);
+}
+
+.logout-btn {
+  margin-top: 0.95rem;
 }
 
 .reset-btn {
