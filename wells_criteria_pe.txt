@@ -1,0 +1,9 @@
+Wells Criteria for Pulmonary Embolism (PE)
+
+- Clinical signs and symptoms of DVT (minimum of leg swelling and pain with palpation of deep veins): 3.0
+- PE is the most likely diagnosis (alternative diagnosis less likely than PE): 3.0
+- Heart rate > 100 bpm: 1.5
+- Immobilization for >= 3 days OR surgery in the previous 4 weeks: 1.5
+- Previous DVT or PE: 1.5
+- Hemoptysis:/Users/sraza/Documents/wells_score_calculator/wells_criteria_pe.txt 1.0
+- Malignancy (on treatment, treated in the last 6 months, or palliative): 1.0
